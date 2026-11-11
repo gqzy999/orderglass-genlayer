@@ -1,0 +1,8 @@
+{
+  "name": "OrderGlass",
+  "mainTag": "Developer Tools",
+  "topic": "Failure Diagnosis",
+  "description": "OrderGlass exposes when two written configuration operations depend on execution order. GenLayer validators independently compile the complete operation/state table, agreeing on destinations, disabled inputs and unknown behavior. Deterministic code compares A\u2192B and B\u2192A from every declared state and preserves the exact counterexample paths. The browser displays both orders, checks source and proof integrity, and lets the owner record a certificate-bound rehearsal only for a commuting pair. Stable Studionet evidence covers ORDER_SENSITIVE, COMMUTES\u2192REHEARSED and REVIEW, plus two finalized guard errors with unchanged records. Three records were independently read back. The model is finite and abstract: no external configuration is executed.",
+  "characters": 747,
+  "limit": 1000
+}

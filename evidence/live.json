@@ -1,0 +1,1851 @@
+{
+  "steps": {
+    "01-deploy": {
+      "method": "deploy",
+      "args": [],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x2775ded1e6c6b212bd91cf885e8ca9143d071e74d8bc7d204ffd447daae0a43e",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x2775ded1e6c6b212bd91cf885e8ca9143d071e74d8bc7d204ffd447daae0a43e",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x0174b4D7494Be33F46B76976f6c9F94004F1b27f": "agree",
+          "0x2C93031BCCd12836A67f81a249e68abAFEaac2E5": "agree",
+          "0xD0eD149D26E76cf49fB588c970E608E44Dd4DAB8": "idle",
+          "0xc675c2B7E1F066B7c1D2fe54EF7B76C91CdFa5F4": "idle",
+          "0xf1EAD5E5f876eae701eF1881b42861079cd9A287": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "sensitive-open": {
+      "method": "open_case",
+      "args": [
+        "sensitive",
+        "{\"title\":\"Quiet mode versus conditional refresh\",\"scope\":\"A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.\",\"states\":[\"quiet-cached\",\"quiet-fresh\",\"loud-cached\",\"loud-fresh\"],\"operations\":[{\"name\":\"Make quiet\",\"rule\":\"Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states.\"},{\"name\":\"Refresh when loud\",\"rule\":\"Refresh data only while sound is loud; otherwise do nothing. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states.\"}]}"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x3d5ab2cbd9806e8df6aba173c4be25070fe7113254dc6c1f37e03f1228306d80",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x3d5ab2cbd9806e8df6aba173c4be25070fe7113254dc6c1f37e03f1228306d80",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x37CD8552B86b2B662eCfb69C4A1253dBE41EB4C1": "idle",
+          "0x722474B013fA39E5aA8785f927dCeB0e3F89815B": "agree",
+          "0x8644a8D2D08903cAFA1F0fb28E34E0ecA727e9ED": "idle",
+          "0xc675c2B7E1F066B7c1D2fe54EF7B76C91CdFa5F4": "agree",
+          "0xe1626534791FC675ED813Cc2C89C427866526113": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "sensitive-compare": {
+      "method": "compare",
+      "args": [
+        "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "sensitive"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x269673182ff6aa70582059b4d37c01956c9f5c5a61831e9906bad290a9caa9c1",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x269673182ff6aa70582059b4d37c01956c9f5c5a61831e9906bad290a9caa9c1",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x0174b4D7494Be33F46B76976f6c9F94004F1b27f": "agree",
+          "0x560FBD37a10bC2B96F118071e922c9106c12Ba1d": "agree",
+          "0x8ADae333478F9D037c78b0E3E8279DdAAb20a1B3": "agree",
+          "0xc675c2B7E1F066B7c1D2fe54EF7B76C91CdFa5F4": "idle",
+          "0xf1EAD5E5f876eae701eF1881b42861079cd9A287": "idle"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "independent-open": {
+      "method": "open_case",
+      "args": [
+        "independent",
+        "{\"title\":\"Independent sound and freshness edits\",\"scope\":\"A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.\",\"states\":[\"quiet-cached\",\"quiet-fresh\",\"loud-cached\",\"loud-fresh\"],\"operations\":[{\"name\":\"Make quiet\",\"rule\":\"Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states.\"},{\"name\":\"Make fresh\",\"rule\":\"Set data to fresh, preserving sound. From quiet-cached become quiet-fresh. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states.\"}]}"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x0e4c767892cb018f227f8fab0ed462045f91be96e96ca1adf345d762c0ec4b0c",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x0e4c767892cb018f227f8fab0ed462045f91be96e96ca1adf345d762c0ec4b0c",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x2bB088e4E6Fd1faBBd23d93F38D01f28a954A49c": "idle",
+          "0x37CD8552B86b2B662eCfb69C4A1253dBE41EB4C1": "idle",
+          "0x722474B013fA39E5aA8785f927dCeB0e3F89815B": "agree",
+          "0xD0eD149D26E76cf49fB588c970E608E44Dd4DAB8": "agree",
+          "0xf1EAD5E5f876eae701eF1881b42861079cd9A287": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "independent-compare": {
+      "method": "compare",
+      "args": [
+        "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "independent"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0xc29ab356f359f35ae41dbc82340f98f4020c2666e146739054695e1daa12d935",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0xc29ab356f359f35ae41dbc82340f98f4020c2666e146739054695e1daa12d935",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x722474B013fA39E5aA8785f927dCeB0e3F89815B": "agree",
+          "0x8644a8D2D08903cAFA1F0fb28E34E0ecA727e9ED": "idle",
+          "0x8ADae333478F9D037c78b0E3E8279DdAAb20a1B3": "agree",
+          "0xD0eD149D26E76cf49fB588c970E608E44Dd4DAB8": "agree",
+          "0xe83D7241D0FF0f1f808B9ab3cb06dD2565bDc605": "idle"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "incomplete-open": {
+      "method": "open_case",
+      "args": [
+        "incomplete",
+        "{\"title\":\"An omitted starting mode\",\"scope\":\"A preview panel has exactly two abstract modes, quiet and loud. There are no hidden variables or external effects. The written rule is the entire available specification; unspecified behavior cannot be assumed to preserve the state.\",\"states\":[\"quiet\",\"loud\"],\"operations\":[{\"name\":\"Make quiet\",\"rule\":\"From quiet remain quiet. From loud become quiet. This operation is enabled in both declared modes.\"},{\"name\":\"Incomplete refresh\",\"rule\":\"From quiet remain quiet. This is the complete specification; no behavior or enablement is specified for loud.\"}]}"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x178d3683137895f480558f4773a109a31ea55ec2417b518fe449e3a5063e4269",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x178d3683137895f480558f4773a109a31ea55ec2417b518fe449e3a5063e4269",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x0cf3809a31B0c7E0742d126451aDE1977e3748D2": "agree",
+          "0x1Cd67946A11E6410a3DF1b27d35F4a511e93c882": "idle",
+          "0x560FBD37a10bC2B96F118071e922c9106c12Ba1d": "idle",
+          "0x8644a8D2D08903cAFA1F0fb28E34E0ecA727e9ED": "agree",
+          "0xe83D7241D0FF0f1f808B9ab3cb06dD2565bDc605": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "incomplete-compare": {
+      "method": "compare",
+      "args": [
+        "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "incomplete"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0xaa0b9c11b04932426f0383620b999a3b8afc550fcc9f5113df76ac50834eed4d",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0xaa0b9c11b04932426f0383620b999a3b8afc550fcc9f5113df76ac50834eed4d",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x0cf3809a31B0c7E0742d126451aDE1977e3748D2": "agree",
+          "0x37CD8552B86b2B662eCfb69C4A1253dBE41EB4C1": "idle",
+          "0x560FBD37a10bC2B96F118071e922c9106c12Ba1d": "agree",
+          "0x709a1dDECA594C16AB3864A00Eaa2BB1Cd9b5305": "agree",
+          "0x722474B013fA39E5aA8785f927dCeB0e3F89815B": "idle"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "blocked-sensitive-rehearsal": {
+      "method": "rehearse",
+      "args": [
+        "sensitive",
+        "05ae316182b0086cbe1dc92a21500452a887275adc8b2dc376081d642c527b03",
+        2,
+        "AB"
+      ],
+      "guard": "NOT_COMMUTING",
+      "before": {
+        "cells": [
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become quiet-cached.",
+            "reason": "The rule explicitly maps loud-cached to quiet-cached, whose destination index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From loud-fresh become quiet-fresh.",
+            "reason": "The rule explicitly maps loud-fresh to quiet-fresh, whose destination index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become loud-fresh.",
+            "reason": "The rule explicitly maps loud-cached to loud-fresh, whose destination index is 3.",
+            "result": "3"
+          },
+          {
+            "quote": "From loud-fresh remain loud-fresh.",
+            "reason": "The rule explicitly preserves loud-fresh, whose starting state index is 3.",
+            "result": "3"
+          }
+        ],
+        "certificate": "05ae316182b0086cbe1dc92a21500452a887275adc8b2dc376081d642c527b03",
+        "input_hash": "53b6d5b555c8940688cdf7a3adab1251ac8c4cacf2b2e8ca0586fb5d70cca3b3",
+        "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "proof": {
+          "counterexamples": [
+            "2"
+          ],
+          "rows": [
+            {
+              "ab": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "ba": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "kind": "SAME",
+              "start": "0"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "1"
+            },
+            {
+              "ab": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "DIFFERENT",
+              "start": "2"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "3"
+            }
+          ],
+          "state": "ORDER_SENSITIVE",
+          "usable_starts": [
+            "0",
+            "1",
+            "3"
+          ]
+        },
+        "protocol": "orderglass-1",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Make quiet",
+              "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+            },
+            {
+              "name": "Refresh when loud",
+              "rule": "Refresh data only while sound is loud; otherwise do nothing. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+            }
+          ],
+          "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+          "states": [
+            "quiet-cached",
+            "quiet-fresh",
+            "loud-cached",
+            "loud-fresh"
+          ],
+          "title": "Quiet mode versus conditional refresh"
+        },
+        "state": "ORDER_SENSITIVE",
+        "tag": "sensitive"
+      },
+      "sendStarted": true,
+      "hash": "0xdbd3b1fdccf15900ffb21148355f38d5aa5a4d28994cccf4fa1977f8eaf43f38",
+      "after": {
+        "cells": [
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become quiet-cached.",
+            "reason": "The rule explicitly maps loud-cached to quiet-cached, whose destination index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From loud-fresh become quiet-fresh.",
+            "reason": "The rule explicitly maps loud-fresh to quiet-fresh, whose destination index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become loud-fresh.",
+            "reason": "The rule explicitly maps loud-cached to loud-fresh, whose destination index is 3.",
+            "result": "3"
+          },
+          {
+            "quote": "From loud-fresh remain loud-fresh.",
+            "reason": "The rule explicitly preserves loud-fresh, whose starting state index is 3.",
+            "result": "3"
+          }
+        ],
+        "certificate": "05ae316182b0086cbe1dc92a21500452a887275adc8b2dc376081d642c527b03",
+        "input_hash": "53b6d5b555c8940688cdf7a3adab1251ac8c4cacf2b2e8ca0586fb5d70cca3b3",
+        "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "proof": {
+          "counterexamples": [
+            "2"
+          ],
+          "rows": [
+            {
+              "ab": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "ba": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "kind": "SAME",
+              "start": "0"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "1"
+            },
+            {
+              "ab": {
+                "result": "0",
+                "steps": [
+                  "0",
+                  "0"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "DIFFERENT",
+              "start": "2"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "3"
+            }
+          ],
+          "state": "ORDER_SENSITIVE",
+          "usable_starts": [
+            "0",
+            "1",
+            "3"
+          ]
+        },
+        "protocol": "orderglass-1",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Make quiet",
+              "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+            },
+            {
+              "name": "Refresh when loud",
+              "rule": "Refresh data only while sound is loud; otherwise do nothing. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+            }
+          ],
+          "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+          "states": [
+            "quiet-cached",
+            "quiet-fresh",
+            "loud-cached",
+            "loud-fresh"
+          ],
+          "title": "Quiet mode versus conditional refresh"
+        },
+        "state": "ORDER_SENSITIVE",
+        "tag": "sensitive"
+      },
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0xdbd3b1fdccf15900ffb21148355f38d5aa5a4d28994cccf4fa1977f8eaf43f38",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "ERROR",
+        "consensusVotes": {
+          "0x0cf3809a31B0c7E0742d126451aDE1977e3748D2": "agree",
+          "0x722474B013fA39E5aA8785f927dCeB0e3F89815B": "idle",
+          "0x8ADae333478F9D037c78b0E3E8279DdAAb20a1B3": "agree",
+          "0xC65Ec56a1141866951B34D846be8EF433764A48B": "agree",
+          "0xf1EAD5E5f876eae701eF1881b42861079cd9A287": "idle"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "blocked-stale-certificate": {
+      "method": "rehearse",
+      "args": [
+        "independent",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        2,
+        "AB"
+      ],
+      "guard": "STALE_CERTIFICATE",
+      "before": {
+        "cells": [
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "Starting in quiet-cached, the Make quiet operation keeps the state as quiet-cached, which corresponds to index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "Starting in quiet-fresh, the Make quiet operation keeps the state as quiet-fresh, which corresponds to index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become quiet-cached.",
+            "reason": "Starting in loud-cached, the Make quiet operation changes the sound to quiet while preserving cached data, resulting in quiet-cached at index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From loud-fresh become quiet-fresh.",
+            "reason": "Starting in loud-fresh, the Make quiet operation changes the sound to quiet while preserving fresh data, resulting in quiet-fresh at index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-cached become quiet-fresh.",
+            "reason": "Starting in quiet-cached, the Make fresh operation changes the data to fresh while preserving quiet sound, resulting in quiet-fresh at index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "Starting in quiet-fresh, the Make fresh operation keeps the state as quiet-fresh, which corresponds to index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become loud-fresh.",
+            "reason": "Starting in loud-cached, the Make fresh operation changes the data to fresh while preserving loud sound, resulting in loud-fresh at index 3.",
+            "result": "3"
+          },
+          {
+            "quote": "From loud-fresh remain loud-fresh.",
+            "reason": "Starting in loud-fresh, the Make fresh operation keeps the state as loud-fresh, which corresponds to index 3.",
+            "result": "3"
+          }
+        ],
+        "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+        "input_hash": "740ad461f12145554d2cd33cbb2fa06811c052df00195301bb143fbdf61c5416",
+        "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "proof": {
+          "counterexamples": [],
+          "rows": [
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "0"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "1"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "2"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "3"
+            }
+          ],
+          "state": "COMMUTES",
+          "usable_starts": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "protocol": "orderglass-1",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Make quiet",
+              "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+            },
+            {
+              "name": "Make fresh",
+              "rule": "Set data to fresh, preserving sound. From quiet-cached become quiet-fresh. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+            }
+          ],
+          "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+          "states": [
+            "quiet-cached",
+            "quiet-fresh",
+            "loud-cached",
+            "loud-fresh"
+          ],
+          "title": "Independent sound and freshness edits"
+        },
+        "state": "COMMUTES",
+        "tag": "independent"
+      },
+      "sendStarted": true,
+      "hash": "0xa308fdf25eda63534afa97fa6a356c64350f53456cc220b391db36f359a5f220",
+      "after": {
+        "cells": [
+          {
+            "quote": "From quiet-cached remain quiet-cached.",
+            "reason": "Starting in quiet-cached, the Make quiet operation keeps the state as quiet-cached, which corresponds to index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "Starting in quiet-fresh, the Make quiet operation keeps the state as quiet-fresh, which corresponds to index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become quiet-cached.",
+            "reason": "Starting in loud-cached, the Make quiet operation changes the sound to quiet while preserving cached data, resulting in quiet-cached at index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From loud-fresh become quiet-fresh.",
+            "reason": "Starting in loud-fresh, the Make quiet operation changes the sound to quiet while preserving fresh data, resulting in quiet-fresh at index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-cached become quiet-fresh.",
+            "reason": "Starting in quiet-cached, the Make fresh operation changes the data to fresh while preserving quiet sound, resulting in quiet-fresh at index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From quiet-fresh remain quiet-fresh.",
+            "reason": "Starting in quiet-fresh, the Make fresh operation keeps the state as quiet-fresh, which corresponds to index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From loud-cached become loud-fresh.",
+            "reason": "Starting in loud-cached, the Make fresh operation changes the data to fresh while preserving loud sound, resulting in loud-fresh at index 3.",
+            "result": "3"
+          },
+          {
+            "quote": "From loud-fresh remain loud-fresh.",
+            "reason": "Starting in loud-fresh, the Make fresh operation keeps the state as loud-fresh, which corresponds to index 3.",
+            "result": "3"
+          }
+        ],
+        "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+        "input_hash": "740ad461f12145554d2cd33cbb2fa06811c052df00195301bb143fbdf61c5416",
+        "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+        "proof": {
+          "counterexamples": [],
+          "rows": [
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "0"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "1"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "2"
+            },
+            {
+              "ab": {
+                "result": "1",
+                "steps": [
+                  "1",
+                  "1"
+                ]
+              },
+              "ba": {
+                "result": "1",
+                "steps": [
+                  "3",
+                  "1"
+                ]
+              },
+              "kind": "SAME",
+              "start": "3"
+            }
+          ],
+          "state": "COMMUTES",
+          "usable_starts": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "protocol": "orderglass-1",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Make quiet",
+              "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+            },
+            {
+              "name": "Make fresh",
+              "rule": "Set data to fresh, preserving sound. From quiet-cached become quiet-fresh. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+            }
+          ],
+          "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+          "states": [
+            "quiet-cached",
+            "quiet-fresh",
+            "loud-cached",
+            "loud-fresh"
+          ],
+          "title": "Independent sound and freshness edits"
+        },
+        "state": "COMMUTES",
+        "tag": "independent"
+      },
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0xa308fdf25eda63534afa97fa6a356c64350f53456cc220b391db36f359a5f220",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "ERROR",
+        "consensusVotes": {
+          "0x1Cd67946A11E6410a3DF1b27d35F4a511e93c882": "agree",
+          "0x2bB088e4E6Fd1faBBd23d93F38D01f28a954A49c": "idle",
+          "0x37CD8552B86b2B662eCfb69C4A1253dBE41EB4C1": "agree",
+          "0x709a1dDECA594C16AB3864A00Eaa2BB1Cd9b5305": "agree",
+          "0xe1626534791FC675ED813Cc2C89C427866526113": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    },
+    "independent-rehearsal": {
+      "method": "rehearse",
+      "args": [
+        "independent",
+        "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+        2,
+        "BA"
+      ],
+      "guard": "",
+      "before": null,
+      "sendStarted": true,
+      "hash": "0x8f670c075eda4408bf208afcb3bb0d22b933880ee3b95b4cdb8d08a34650ade8",
+      "done": true,
+      "receipt": {
+        "status": 7,
+        "result": 6,
+        "hash": "0x8f670c075eda4408bf208afcb3bb0d22b933880ee3b95b4cdb8d08a34650ade8",
+        "from_address": "0x30C5d63bc3E2D4AdB4c845650BdEe7E43D776985",
+        "to_address": "0x2739dA167953b194CbF1e54c10C5DFfa267BeE46",
+        "execution_result": "SUCCESS",
+        "consensusVotes": {
+          "0x1Cd67946A11E6410a3DF1b27d35F4a511e93c882": "idle",
+          "0x2bB088e4E6Fd1faBBd23d93F38D01f28a954A49c": "agree",
+          "0x8644a8D2D08903cAFA1F0fb28E34E0ecA727e9ED": "idle",
+          "0x8f1abcAF0fF10678Af925f83b2Bb8b3534c4b94b": "agree",
+          "0xC65Ec56a1141866951B34D846be8EF433764A48B": "agree"
+        },
+        "validatorCount": 4,
+        "leaderOnly": false,
+        "value": null
+      }
+    }
+  },
+  "records": {
+    "sensitive": {
+      "cells": [
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become quiet-cached.",
+          "reason": "The rule explicitly maps loud-cached to quiet-cached, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud-fresh become quiet-fresh.",
+          "reason": "The rule explicitly maps loud-fresh to quiet-fresh, whose destination index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become loud-fresh.",
+          "reason": "The rule explicitly maps loud-cached to loud-fresh, whose destination index is 3.",
+          "result": "3"
+        },
+        {
+          "quote": "From loud-fresh remain loud-fresh.",
+          "reason": "The rule explicitly preserves loud-fresh, whose starting state index is 3.",
+          "result": "3"
+        }
+      ],
+      "certificate": "05ae316182b0086cbe1dc92a21500452a887275adc8b2dc376081d642c527b03",
+      "input_hash": "53b6d5b555c8940688cdf7a3adab1251ac8c4cacf2b2e8ca0586fb5d70cca3b3",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [
+          "2"
+        ],
+        "rows": [
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "1"
+          },
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "DIFFERENT",
+            "start": "2"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "3"
+          }
+        ],
+        "state": "ORDER_SENSITIVE",
+        "usable_starts": [
+          "0",
+          "1",
+          "3"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": null,
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+          },
+          {
+            "name": "Refresh when loud",
+            "rule": "Refresh data only while sound is loud; otherwise do nothing. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+          }
+        ],
+        "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+        "states": [
+          "quiet-cached",
+          "quiet-fresh",
+          "loud-cached",
+          "loud-fresh"
+        ],
+        "title": "Quiet mode versus conditional refresh"
+      },
+      "state": "ORDER_SENSITIVE",
+      "tag": "sensitive"
+    },
+    "independent": {
+      "cells": [
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "Starting in quiet-cached, the Make quiet operation keeps the state as quiet-cached, which corresponds to index 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "Starting in quiet-fresh, the Make quiet operation keeps the state as quiet-fresh, which corresponds to index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become quiet-cached.",
+          "reason": "Starting in loud-cached, the Make quiet operation changes the sound to quiet while preserving cached data, resulting in quiet-cached at index 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud-fresh become quiet-fresh.",
+          "reason": "Starting in loud-fresh, the Make quiet operation changes the sound to quiet while preserving fresh data, resulting in quiet-fresh at index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-cached become quiet-fresh.",
+          "reason": "Starting in quiet-cached, the Make fresh operation changes the data to fresh while preserving quiet sound, resulting in quiet-fresh at index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "Starting in quiet-fresh, the Make fresh operation keeps the state as quiet-fresh, which corresponds to index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become loud-fresh.",
+          "reason": "Starting in loud-cached, the Make fresh operation changes the data to fresh while preserving loud sound, resulting in loud-fresh at index 3.",
+          "result": "3"
+        },
+        {
+          "quote": "From loud-fresh remain loud-fresh.",
+          "reason": "Starting in loud-fresh, the Make fresh operation keeps the state as loud-fresh, which corresponds to index 3.",
+          "result": "3"
+        }
+      ],
+      "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+      "input_hash": "740ad461f12145554d2cd33cbb2fa06811c052df00195301bb143fbdf61c5416",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [],
+        "rows": [
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "0",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "1"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "0",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "2"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "3"
+          }
+        ],
+        "state": "COMMUTES",
+        "usable_starts": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": {
+        "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+        "end": "1",
+        "order": "BA",
+        "start": "2",
+        "steps": [
+          "3",
+          "1"
+        ]
+      },
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+          },
+          {
+            "name": "Make fresh",
+            "rule": "Set data to fresh, preserving sound. From quiet-cached become quiet-fresh. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+          }
+        ],
+        "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+        "states": [
+          "quiet-cached",
+          "quiet-fresh",
+          "loud-cached",
+          "loud-fresh"
+        ],
+        "title": "Independent sound and freshness edits"
+      },
+      "state": "REHEARSED",
+      "tag": "independent"
+    },
+    "incomplete": {
+      "cells": [
+        {
+          "quote": "From quiet remain quiet.",
+          "reason": "Starting in quiet explicitly remains in quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud become quiet. This operation is enabled in both declared modes.",
+          "reason": "Starting in loud explicitly becomes quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet remain quiet.",
+          "reason": "Starting in quiet explicitly remains in quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet remain quiet. This is the complete specification; no behavior or enablement is specified for loud.",
+          "reason": "The starting state is loud, but the rule specifies neither its destination nor whether this operation is enabled for loud.",
+          "result": "UNKNOWN"
+        }
+      ],
+      "certificate": "bb2f826d05387dfd1439d944c25247e008b5a9773bab9a256126e18022468b95",
+      "input_hash": "992daec36017684e70bbb414d4e7fae196e1f05ace14f5b9fe859c0a13681423",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [],
+        "rows": [
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "UNKNOWN",
+              "steps": [
+                "UNKNOWN"
+              ]
+            },
+            "kind": "UNKNOWN",
+            "start": "1"
+          }
+        ],
+        "state": "REVIEW",
+        "usable_starts": [
+          "0"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": null,
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "From quiet remain quiet. From loud become quiet. This operation is enabled in both declared modes."
+          },
+          {
+            "name": "Incomplete refresh",
+            "rule": "From quiet remain quiet. This is the complete specification; no behavior or enablement is specified for loud."
+          }
+        ],
+        "scope": "A preview panel has exactly two abstract modes, quiet and loud. There are no hidden variables or external effects. The written rule is the entire available specification; unspecified behavior cannot be assumed to preserve the state.",
+        "states": [
+          "quiet",
+          "loud"
+        ],
+        "title": "An omitted starting mode"
+      },
+      "state": "REVIEW",
+      "tag": "incomplete"
+    }
+  },
+  "sourceSha256": "e61a0f769f54e036c01916b757c44587f0996d64623480719990f1dcb86f1332",
+  "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+  "schema": {
+    "ctor": {
+      "params": [],
+      "kwparams": {}
+    },
+    "methods": {
+      "compare": {
+        "params": [
+          [
+            "owner",
+            "string"
+          ],
+          [
+            "tag",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "null",
+        "payable": false
+      },
+      "get_case": {
+        "params": [
+          [
+            "owner",
+            "string"
+          ],
+          [
+            "tag",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "get_protocol": {
+        "params": [],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "open_case": {
+        "params": [
+          [
+            "tag",
+            "string"
+          ],
+          [
+            "payload",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "null",
+        "payable": false
+      },
+      "rehearse": {
+        "params": [
+          [
+            "tag",
+            "string"
+          ],
+          [
+            "certificate",
+            "string"
+          ],
+          [
+            "start",
+            "int"
+          ],
+          [
+            "order",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "null",
+        "payable": false
+      }
+    }
+  },
+  "address": "0x2739da167953b194cbf1e54c10c5dffa267bee46",
+  "independentReadback": [
+    {
+      "cells": [
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become quiet-cached.",
+          "reason": "The rule explicitly maps loud-cached to quiet-cached, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud-fresh become quiet-fresh.",
+          "reason": "The rule explicitly maps loud-fresh to quiet-fresh, whose destination index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "The rule explicitly preserves quiet-cached, whose starting state index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "The rule explicitly preserves quiet-fresh, whose starting state index is 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become loud-fresh.",
+          "reason": "The rule explicitly maps loud-cached to loud-fresh, whose destination index is 3.",
+          "result": "3"
+        },
+        {
+          "quote": "From loud-fresh remain loud-fresh.",
+          "reason": "The rule explicitly preserves loud-fresh, whose starting state index is 3.",
+          "result": "3"
+        }
+      ],
+      "certificate": "05ae316182b0086cbe1dc92a21500452a887275adc8b2dc376081d642c527b03",
+      "input_hash": "53b6d5b555c8940688cdf7a3adab1251ac8c4cacf2b2e8ca0586fb5d70cca3b3",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [
+          "2"
+        ],
+        "rows": [
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "1"
+          },
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "DIFFERENT",
+            "start": "2"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "3"
+          }
+        ],
+        "state": "ORDER_SENSITIVE",
+        "usable_starts": [
+          "0",
+          "1",
+          "3"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": null,
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+          },
+          {
+            "name": "Refresh when loud",
+            "rule": "Refresh data only while sound is loud; otherwise do nothing. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+          }
+        ],
+        "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+        "states": [
+          "quiet-cached",
+          "quiet-fresh",
+          "loud-cached",
+          "loud-fresh"
+        ],
+        "title": "Quiet mode versus conditional refresh"
+      },
+      "state": "ORDER_SENSITIVE",
+      "tag": "sensitive"
+    },
+    {
+      "cells": [
+        {
+          "quote": "From quiet-cached remain quiet-cached.",
+          "reason": "Starting in quiet-cached, the Make quiet operation keeps the state as quiet-cached, which corresponds to index 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "Starting in quiet-fresh, the Make quiet operation keeps the state as quiet-fresh, which corresponds to index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become quiet-cached.",
+          "reason": "Starting in loud-cached, the Make quiet operation changes the sound to quiet while preserving cached data, resulting in quiet-cached at index 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud-fresh become quiet-fresh.",
+          "reason": "Starting in loud-fresh, the Make quiet operation changes the sound to quiet while preserving fresh data, resulting in quiet-fresh at index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-cached become quiet-fresh.",
+          "reason": "Starting in quiet-cached, the Make fresh operation changes the data to fresh while preserving quiet sound, resulting in quiet-fresh at index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From quiet-fresh remain quiet-fresh.",
+          "reason": "Starting in quiet-fresh, the Make fresh operation keeps the state as quiet-fresh, which corresponds to index 1.",
+          "result": "1"
+        },
+        {
+          "quote": "From loud-cached become loud-fresh.",
+          "reason": "Starting in loud-cached, the Make fresh operation changes the data to fresh while preserving loud sound, resulting in loud-fresh at index 3.",
+          "result": "3"
+        },
+        {
+          "quote": "From loud-fresh remain loud-fresh.",
+          "reason": "Starting in loud-fresh, the Make fresh operation keeps the state as loud-fresh, which corresponds to index 3.",
+          "result": "3"
+        }
+      ],
+      "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+      "input_hash": "740ad461f12145554d2cd33cbb2fa06811c052df00195301bb143fbdf61c5416",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [],
+        "rows": [
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "0",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "1"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "0",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "2"
+          },
+          {
+            "ab": {
+              "result": "1",
+              "steps": [
+                "1",
+                "1"
+              ]
+            },
+            "ba": {
+              "result": "1",
+              "steps": [
+                "3",
+                "1"
+              ]
+            },
+            "kind": "SAME",
+            "start": "3"
+          }
+        ],
+        "state": "COMMUTES",
+        "usable_starts": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": {
+        "certificate": "96a96bbd0125be67c657283c970394dd4fd6b71f78e1a2d2ce50632fa1f3b519",
+        "end": "1",
+        "order": "BA",
+        "start": "2",
+        "steps": [
+          "3",
+          "1"
+        ]
+      },
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "Turn sound to quiet, preserving data freshness. From quiet-cached remain quiet-cached. From quiet-fresh remain quiet-fresh. From loud-cached become quiet-cached. From loud-fresh become quiet-fresh. The operation is enabled in all four states."
+          },
+          {
+            "name": "Make fresh",
+            "rule": "Set data to fresh, preserving sound. From quiet-cached become quiet-fresh. From quiet-fresh remain quiet-fresh. From loud-cached become loud-fresh. From loud-fresh remain loud-fresh. The operation is enabled in all four states."
+          }
+        ],
+        "scope": "A preview panel has two independent flags: sound is quiet or loud; data is cached or fresh. The four named states exhaust the model. No other side effects or external calls exist. Each operation is atomic.",
+        "states": [
+          "quiet-cached",
+          "quiet-fresh",
+          "loud-cached",
+          "loud-fresh"
+        ],
+        "title": "Independent sound and freshness edits"
+      },
+      "state": "REHEARSED",
+      "tag": "independent"
+    },
+    {
+      "cells": [
+        {
+          "quote": "From quiet remain quiet.",
+          "reason": "Starting in quiet explicitly remains in quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From loud become quiet. This operation is enabled in both declared modes.",
+          "reason": "Starting in loud explicitly becomes quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet remain quiet.",
+          "reason": "Starting in quiet explicitly remains in quiet, whose destination index is 0.",
+          "result": "0"
+        },
+        {
+          "quote": "From quiet remain quiet. This is the complete specification; no behavior or enablement is specified for loud.",
+          "reason": "The starting state is loud, but the rule specifies neither its destination nor whether this operation is enabled for loud.",
+          "result": "UNKNOWN"
+        }
+      ],
+      "certificate": "bb2f826d05387dfd1439d944c25247e008b5a9773bab9a256126e18022468b95",
+      "input_hash": "992daec36017684e70bbb414d4e7fae196e1f05ace14f5b9fe859c0a13681423",
+      "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+      "proof": {
+        "counterexamples": [],
+        "rows": [
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "kind": "SAME",
+            "start": "0"
+          },
+          {
+            "ab": {
+              "result": "0",
+              "steps": [
+                "0",
+                "0"
+              ]
+            },
+            "ba": {
+              "result": "UNKNOWN",
+              "steps": [
+                "UNKNOWN"
+              ]
+            },
+            "kind": "UNKNOWN",
+            "start": "1"
+          }
+        ],
+        "state": "REVIEW",
+        "usable_starts": [
+          "0"
+        ]
+      },
+      "protocol": "orderglass-1",
+      "rehearsal": null,
+      "spec": {
+        "operations": [
+          {
+            "name": "Make quiet",
+            "rule": "From quiet remain quiet. From loud become quiet. This operation is enabled in both declared modes."
+          },
+          {
+            "name": "Incomplete refresh",
+            "rule": "From quiet remain quiet. This is the complete specification; no behavior or enablement is specified for loud."
+          }
+        ],
+        "scope": "A preview panel has exactly two abstract modes, quiet and loud. There are no hidden variables or external effects. The written rule is the entire available specification; unspecified behavior cannot be assumed to preserve the state.",
+        "states": [
+          "quiet",
+          "loud"
+        ],
+        "title": "An omitted starting mode"
+      },
+      "state": "REVIEW",
+      "tag": "incomplete"
+    }
+  ],
+  "complete": true,
+  "network": {
+    "chainId": 61999,
+    "rpc": "https://studio.genlayer.com/api"
+  },
+  "fixture": "Synthetic abstract configuration. One disposable SDK signer. Zero-value, zero gas price. Complete raw receipts archived separately."
+}

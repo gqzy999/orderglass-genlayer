@@ -1,0 +1,14 @@
+{
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "protocol": "orderglass-1",
+  "address": "0x2739da167953b194cbf1e54c10c5dffa267bee46",
+  "owner": "0x30c5d63bc3e2d4adb4c845650bdee7e43d776985",
+  "sourceSha256": "e61a0f769f54e036c01916b757c44587f0996d64623480719990f1dcb86f1332",
+  "transaction": "0x2775ded1e6c6b212bd91cf885e8ca9143d071e74d8bc7d204ffd447daae0a43e",
+  "ids": [
+    "sensitive",
+    "independent",
+    "incomplete"
+  ]
+}

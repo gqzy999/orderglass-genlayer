@@ -1,0 +1,30 @@
+{
+  "environment": "Cloud Chrome, local development preview; not a public deployment",
+  "desktop": {
+    "case": "sensitive",
+    "sourceProtocolInputProofAndCertificateVerified": true,
+    "selectedStart": "loud-cached",
+    "ab": [
+      "quiet-cached",
+      "quiet-cached"
+    ],
+    "ba": [
+      "loud-fresh",
+      "quiet-fresh"
+    ]
+  },
+  "mobile": {
+    "viewportWidth": 390,
+    "clientWidth": 375,
+    "scrollWidth": 375,
+    "views": [
+      "authored ORDER_SENSITIVE",
+      "authored REVIEW",
+      "live connection with labelled temporary account"
+    ]
+  },
+  "temporaryAccountCreated": true,
+  "browserWritesSent": 0,
+  "physicalExtensionSigning": false,
+  "physicalMobileDeepLinks": false
+}
