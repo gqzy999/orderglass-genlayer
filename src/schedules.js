@@ -297,8 +297,13 @@ $('track').onclick = () => act(track);
 $('payload').value = JSON.stringify(fixtures[0].spec, null, 2);
 demo(fixtures[0], true);
 
-void import('./schedule-model.js').then(({ createScheduleModel }) => {
-  model = createScheduleModel($('model'), selectPath);
+void import('./schedule-model.js').then(({ createScheduleModel }) =>
+  createScheduleModel($('model'), selectPath)
+).catch(async () => {
+  const { createScheduleProjection } = await import('./schedule-projection.js');
+  return createScheduleProjection($('model'), selectPath);
+}).then(created => {
+  model = created;
   renderRow();
 }).catch(() => {
   $('model').dataset.unavailable = 'true';

@@ -5,7 +5,8 @@
 Schedule Studio evaluates **all six orders of three configuration operations**.
 Choose a starting state, rotate the 3D model, and select a path to inspect or
 replay its intermediate states. Completed and stopped paths remain readable
-through keyboard-accessible order buttons, including where WebGL is unavailable.
+through keyboard-accessible order buttons. Browsers without WebGL use a
+software projection with the same rotation, selection, zoom and replay controls.
 The pair workspace retains the original two-operation comparison and evidence.
 
 ## Three-operation schedules
