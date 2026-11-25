@@ -48,7 +48,7 @@ npm run verify:schedules
 
 `verify:schedules` re-reads the stored hashes, verifies their finalized
 execution, checks deployed source byte parity and recomputes the finalized
-schedule proofs. The scheduled-workspace transport uses genlayer-js 2.0.0
+schedule proofs. The [Schedule verification workflow](.github/workflows/schedules.yml) also runs the read-only verification and a fresh browser lifecycle using a temporary test account; successful workflow artifacts contain the observed browser transactions and readback. The scheduled-workspace transport uses genlayer-js 2.0.0
 under the `genlayer-studio` alias to include the current network fee policy.
 Writes use test GEN for network fees and transfer zero value to the contract.
 

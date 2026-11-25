@@ -1,0 +1,65 @@
+name: Schedule verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/schedules.yml'
+      - 'scripts/browser-schedules.mjs'
+      - 'scripts/schedules-live.mjs'
+      - 'contracts/orderglass_schedules.py'
+      - 'src/schedule*'
+      - 'src/proof.js'
+      - 'index.html'
+      - 'public/schedules-*'
+      - 'evidence/schedules-*'
+      - 'examples/schedules.json'
+      - 'package*.json'
+      - 'vite.config.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: schedule-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    name: Verify finalized schedule records
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run verify:schedules
+  browser:
+    name: Browser schedule lifecycle
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: verify
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm install --no-save --package-lock=false playwright@1.51.1
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise production browser workflow
+        run: |
+          npx vite preview --host 127.0.0.1 --port 4173 --strictPort > /tmp/orderglass-preview.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/browser-schedules.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: schedule-browser-observations
+          path: browser-observations/
+          if-no-files-found: warn
