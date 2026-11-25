@@ -1,0 +1,1348 @@
+{
+  "chainId": 61999,
+  "sourceSha256": "5f7a792971b7717304e9d57f1c6df1f7139245cf1f782cae2f2b2d1ddbe41803",
+  "deployment": {
+    "hash": "0x6fd7e5d231d51235c2f3fd09dfc7252347d9e948eaee81cff209016d264714da",
+    "status": "FINALIZED",
+    "execution": "SUCCESS"
+  },
+  "cases": {
+    "release-gate": {
+      "expected": "ORDER_CONSTRAINED",
+      "transactions": {
+        "seal": {
+          "hash": "0xf2325b20ea89a737c3eed7a7e50690e79cd0ecf8a9b2f6382fb8da0f57e2e4c1",
+          "method": "open_case",
+          "args": [
+            "release-gate",
+            "{\"title\":\"Back up, switch, restart\",\"scope\":\"Three exclusive states model a release. Prepared means a verified backup, and Switched means the configuration is committed. Restart leaves the tracked configuration state unchanged.\",\"states\":[\"Closed\",\"Prepared\",\"Switched\"],\"operations\":[{\"name\":\"Back up\",\"rule\":\"From Closed, go to Prepared. From Prepared, stay Prepared. From Switched, stay Switched.\"},{\"name\":\"Switch config\",\"rule\":\"From Closed, explicitly BLOCKED. From Prepared, go to Switched. From Switched, stay Switched.\"},{\"name\":\"Restart\",\"rule\":\"From Closed, explicitly BLOCKED. From Prepared, explicitly BLOCKED. From Switched, stay Switched.\"}]}"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "compare": {
+          "hash": "0x5b0967a05719eb1eeb802e46785b3fa832e6d667362616b7af29ac6c527c9734",
+          "method": "compare",
+          "args": [
+            "0xbac1a318ba01c95758b40baeac6bf1808364ef6e",
+            "release-gate"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "reject": {
+          "hash": "0x99e1d8c2a4177a2711746d36eef19cfb9cf35e1a97f70212ee5a3bc4af2d67b2",
+          "method": "rehearse",
+          "args": [
+            "release-gate",
+            "1c4694c992ba68db4204b757977ce386e60c6915bf7613d4aad474a57623c32e",
+            0,
+            "BAC"
+          ],
+          "status": "FINALIZED",
+          "execution": "ERROR",
+          "error": "ORDER_BLOCKED"
+        },
+        "rehearse": {
+          "hash": "0x2521bfb0d87bf7816a49d36cde6d44d78dbfffeb03673d2bacca2a53e4786075",
+          "method": "rehearse",
+          "args": [
+            "release-gate",
+            "1c4694c992ba68db4204b757977ce386e60c6915bf7613d4aad474a57623c32e",
+            0,
+            "ABC"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        }
+      },
+      "owner": "0xbac1a318ba01c95758b40baeac6bf1808364ef6e",
+      "readback": {
+        "cells": [
+          {
+            "quote": "From Closed, go to Prepared.",
+            "reason": "Closed transitions to Prepared per the first clause of the rule.",
+            "result": "1"
+          },
+          {
+            "quote": "From Prepared, stay Prepared.",
+            "reason": "Prepared remains in Prepared as specified by the second clause.",
+            "result": "1"
+          },
+          {
+            "quote": "From Switched, stay Switched.",
+            "reason": "Switched remains in Switched according to the final clause.",
+            "result": "2"
+          },
+          {
+            "quote": "From Closed, explicitly BLOCKED.",
+            "reason": "The rule states an explicit block for Closed as the starting state.",
+            "result": "BLOCKED"
+          },
+          {
+            "quote": "From Prepared, go to Switched.",
+            "reason": "Prepared transitions directly to Switched per the second clause.",
+            "result": "2"
+          },
+          {
+            "quote": "From Switched, stay Switched.",
+            "reason": "Switched remains unchanged as stated in the final clause.",
+            "result": "2"
+          },
+          {
+            "quote": "From Closed, explicitly BLOCKED.",
+            "reason": "The rule explicitly blocks the transition from Closed.",
+            "result": "BLOCKED"
+          },
+          {
+            "quote": "From Prepared, explicitly BLOCKED.",
+            "reason": "The rule explicitly blocks the transition from Prepared.",
+            "result": "BLOCKED"
+          },
+          {
+            "quote": "From Switched, stay Switched.",
+            "reason": "Switched remains in Switched per the final clause of the rule.",
+            "result": "2"
+          }
+        ],
+        "certificate": "1c4694c992ba68db4204b757977ce386e60c6915bf7613d4aad474a57623c32e",
+        "input_hash": "4b27e92245cef76cdc5257a70a3c8c9e0159235bfc75b0e655cded29472f9712",
+        "owner": "0xbac1a318ba01c95758b40baeac6bf1808364ef6e",
+        "proof": {
+          "rows": [
+            {
+              "allowed": [
+                "ABC"
+              ],
+              "ends": [
+                "2"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "2",
+                  "steps": [
+                    "1",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                },
+                {
+                  "order": "BAC",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "BCA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "CAB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                },
+                {
+                  "order": "CBA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                }
+              ],
+              "start": "0"
+            },
+            {
+              "allowed": [
+                "ABC",
+                "BAC",
+                "BCA"
+              ],
+              "ends": [
+                "2"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "2",
+                  "steps": [
+                    "1",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                },
+                {
+                  "order": "BAC",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                },
+                {
+                  "order": "CBA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "C"
+                }
+              ],
+              "start": "1"
+            },
+            {
+              "allowed": [
+                "ABC",
+                "ACB",
+                "BAC",
+                "BCA",
+                "CAB",
+                "CBA"
+              ],
+              "ends": [
+                "2"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BAC",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CBA",
+                  "result": "2",
+                  "steps": [
+                    "2",
+                    "2",
+                    "2"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "2"
+            }
+          ],
+          "state": "ORDER_CONSTRAINED"
+        },
+        "protocol": "orderglass-2",
+        "rehearsal": {
+          "certificate": "1c4694c992ba68db4204b757977ce386e60c6915bf7613d4aad474a57623c32e",
+          "end": "2",
+          "order": "ABC",
+          "start": "0",
+          "steps": [
+            "1",
+            "2",
+            "2"
+          ]
+        },
+        "spec": {
+          "operations": [
+            {
+              "name": "Back up",
+              "rule": "From Closed, go to Prepared. From Prepared, stay Prepared. From Switched, stay Switched."
+            },
+            {
+              "name": "Switch config",
+              "rule": "From Closed, explicitly BLOCKED. From Prepared, go to Switched. From Switched, stay Switched."
+            },
+            {
+              "name": "Restart",
+              "rule": "From Closed, explicitly BLOCKED. From Prepared, explicitly BLOCKED. From Switched, stay Switched."
+            }
+          ],
+          "scope": "Three exclusive states model a release. Prepared means a verified backup, and Switched means the configuration is committed. Restart leaves the tracked configuration state unchanged.",
+          "states": [
+            "Closed",
+            "Prepared",
+            "Switched"
+          ],
+          "title": "Back up, switch, restart"
+        },
+        "state": "REHEARSED",
+        "tag": "release-gate"
+      }
+    },
+    "cache-policy": {
+      "expected": "DIVERGENT",
+      "transactions": {
+        "seal": {
+          "hash": "0x78d55040bf65328c2c707dce58ea242ebbae4c46757e0d2c68e6aa20d9d102a5",
+          "method": "open_case",
+          "args": [
+            "cache-policy",
+            "{\"title\":\"Conflicting cache policies\",\"scope\":\"Only two cache policy modes are relevant to this abstract release. The recorded terminal mode determines whether the deployment would end in Cold or Warm.\",\"states\":[\"Cold\",\"Warm\"],\"operations\":[{\"name\":\"Disable warming\",\"rule\":\"From Cold, stay Cold. From Warm, go to Cold.\"},{\"name\":\"Enable warming\",\"rule\":\"From Cold, go to Warm. From Warm, stay Warm.\"},{\"name\":\"Record preference\",\"rule\":\"From Cold, stay Cold. From Warm, stay Warm.\"}]}"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "compare": {
+          "hash": "0xe0a7dcd40c81678f24514d0364ded13ce3505b2793af5da3061fdf52d77e4e80",
+          "method": "compare",
+          "args": [
+            "0x1d4dd8f317319bbd934da52bd0fd891c543d8304",
+            "cache-policy"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "rehearse": {
+          "hash": "0xfe5243d8d07f657663761788e688b007f395208026e297cdb5c89c402ca3dec4",
+          "method": "rehearse",
+          "args": [
+            "cache-policy",
+            "71880788940c0485b37c82c0e77273b525eb3c15533ab7fff9de317c4a631f60",
+            0,
+            "BAC"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        }
+      },
+      "owner": "0x1d4dd8f317319bbd934da52bd0fd891c543d8304",
+      "readback": {
+        "cells": [
+          {
+            "quote": "From Cold, stay Cold.",
+            "reason": "Cold explicitly remains Cold, which is state index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Warm, go to Cold.",
+            "reason": "Warm explicitly transitions to Cold, which is state index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Cold, go to Warm.",
+            "reason": "Cold explicitly transitions to Warm, which is state index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From Warm, stay Warm.",
+            "reason": "Warm explicitly remains Warm, which is state index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From Cold, stay Cold.",
+            "reason": "Cold explicitly remains Cold, which is state index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Warm, stay Warm.",
+            "reason": "Warm explicitly remains Warm, which is state index 1.",
+            "result": "1"
+          }
+        ],
+        "certificate": "71880788940c0485b37c82c0e77273b525eb3c15533ab7fff9de317c4a631f60",
+        "input_hash": "80e5e150d847c583cf46fbb6dc1aeb36a76fba337cf28befc729be8c9a3fd7a2",
+        "owner": "0x1d4dd8f317319bbd934da52bd0fd891c543d8304",
+        "proof": {
+          "rows": [
+            {
+              "allowed": [
+                "ABC",
+                "ACB",
+                "BAC",
+                "BCA",
+                "CAB",
+                "CBA"
+              ],
+              "ends": [
+                "0",
+                "1"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BAC",
+                  "result": "0",
+                  "steps": [
+                    "1",
+                    "0",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "0",
+                  "steps": [
+                    "1",
+                    "1",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CBA",
+                  "result": "0",
+                  "steps": [
+                    "0",
+                    "1",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "0"
+            },
+            {
+              "allowed": [
+                "ABC",
+                "ACB",
+                "BAC",
+                "BCA",
+                "CAB",
+                "CBA"
+              ],
+              "ends": [
+                "0",
+                "1"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BAC",
+                  "result": "0",
+                  "steps": [
+                    "1",
+                    "0",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "0",
+                  "steps": [
+                    "1",
+                    "1",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CBA",
+                  "result": "0",
+                  "steps": [
+                    "1",
+                    "1",
+                    "0"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "1"
+            }
+          ],
+          "state": "DIVERGENT"
+        },
+        "protocol": "orderglass-2",
+        "rehearsal": {
+          "certificate": "71880788940c0485b37c82c0e77273b525eb3c15533ab7fff9de317c4a631f60",
+          "end": "0",
+          "order": "BAC",
+          "start": "0",
+          "steps": [
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        "spec": {
+          "operations": [
+            {
+              "name": "Disable warming",
+              "rule": "From Cold, stay Cold. From Warm, go to Cold."
+            },
+            {
+              "name": "Enable warming",
+              "rule": "From Cold, go to Warm. From Warm, stay Warm."
+            },
+            {
+              "name": "Record preference",
+              "rule": "From Cold, stay Cold. From Warm, stay Warm."
+            }
+          ],
+          "scope": "Only two cache policy modes are relevant to this abstract release. The recorded terminal mode determines whether the deployment would end in Cold or Warm.",
+          "states": [
+            "Cold",
+            "Warm"
+          ],
+          "title": "Conflicting cache policies"
+        },
+        "state": "REHEARSED",
+        "tag": "cache-policy"
+      }
+    },
+    "stable-order": {
+      "expected": "ORDER_FLEXIBLE",
+      "transactions": {
+        "seal": {
+          "hash": "0xa62ce51aa546128c11f0f67f9ba47af4c1041a0ef995d8ecc23283660229b672",
+          "method": "open_case",
+          "args": [
+            "stable-order",
+            "{\"title\":\"Stable logging rollout\",\"scope\":\"This model projects a logging rollout onto two observable modes. A metrics check and a documentation receipt each leave the projected mode unchanged.\",\"states\":[\"Off\",\"On\"],\"operations\":[{\"name\":\"Enable logging\",\"rule\":\"From Off, go to On. From On, stay On.\"},{\"name\":\"Check metrics\",\"rule\":\"From Off, stay Off. From On, stay On.\"},{\"name\":\"Record documentation\",\"rule\":\"From Off, stay Off. From On, stay On.\"}]}"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "compare": {
+          "hash": "0x746030311c64a4d32a91edd9f1c53450bc3a19096edd19d3dd7aad713939f9e5",
+          "method": "compare",
+          "args": [
+            "0x19dd7fd2c9f08f926967ccc29c555464ede35f1e",
+            "stable-order"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        }
+      },
+      "owner": "0x19dd7fd2c9f08f926967ccc29c555464ede35f1e",
+      "readback": {
+        "cells": [
+          {
+            "quote": "From Off, go to On.",
+            "reason": "Enable logging transitions Off explicitly to On per the rule.",
+            "result": "1"
+          },
+          {
+            "quote": "From On, stay On.",
+            "reason": "Enable logging leaves On unchanged per the rule.",
+            "result": "1"
+          },
+          {
+            "quote": "From Off, stay Off.",
+            "reason": "Check metrics leaves Off unchanged per the rule.",
+            "result": "0"
+          },
+          {
+            "quote": "From On, stay On.",
+            "reason": "Check metrics leaves On unchanged per the rule.",
+            "result": "1"
+          },
+          {
+            "quote": "From Off, stay Off.",
+            "reason": "Record documentation leaves Off unchanged per the rule.",
+            "result": "0"
+          },
+          {
+            "quote": "From On, stay On.",
+            "reason": "Record documentation leaves On unchanged per the rule.",
+            "result": "1"
+          }
+        ],
+        "certificate": "c1bb5033b0617e2a1099c10175b98bcfa223e9279bff372b392ca1f55720a7ab",
+        "input_hash": "30fce6667884f57f86e873da69d3601bc5a245adb56e20b38f8914ff454c959b",
+        "owner": "0x19dd7fd2c9f08f926967ccc29c555464ede35f1e",
+        "proof": {
+          "rows": [
+            {
+              "allowed": [
+                "ABC",
+                "ACB",
+                "BAC",
+                "BCA",
+                "CAB",
+                "CBA"
+              ],
+              "ends": [
+                "1"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BAC",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CBA",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "0"
+            },
+            {
+              "allowed": [
+                "ABC",
+                "ACB",
+                "BAC",
+                "BCA",
+                "CAB",
+                "CBA"
+              ],
+              "ends": [
+                "1"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "ACB",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BAC",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CBA",
+                  "result": "1",
+                  "steps": [
+                    "1",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "1"
+            }
+          ],
+          "state": "ORDER_FLEXIBLE"
+        },
+        "protocol": "orderglass-2",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Enable logging",
+              "rule": "From Off, go to On. From On, stay On."
+            },
+            {
+              "name": "Check metrics",
+              "rule": "From Off, stay Off. From On, stay On."
+            },
+            {
+              "name": "Record documentation",
+              "rule": "From Off, stay Off. From On, stay On."
+            }
+          ],
+          "scope": "This model projects a logging rollout onto two observable modes. A metrics check and a documentation receipt each leave the projected mode unchanged.",
+          "states": [
+            "Off",
+            "On"
+          ],
+          "title": "Stable logging rollout"
+        },
+        "state": "ORDER_FLEXIBLE",
+        "tag": "stable-order"
+      }
+    },
+    "missing-rule": {
+      "expected": "REVIEW",
+      "transactions": {
+        "seal": {
+          "hash": "0xda880275c26d8d624b757cf2368187f15a572b553b538533cea047e894c133bd",
+          "method": "open_case",
+          "args": [
+            "missing-rule",
+            "{\"title\":\"A missing restore rule\",\"scope\":\"Only two modes are relevant. Missing rules are unspecified and should be reviewed. This scenario intentionally omits Restore behavior from Parked.\",\"states\":[\"Ready\",\"Parked\"],\"operations\":[{\"name\":\"Park\",\"rule\":\"From Ready, go to Parked. From Parked, stay Parked.\"},{\"name\":\"Restore\",\"rule\":\"From Ready, stay Ready. Parked has no specified transition.\"},{\"name\":\"Inspect\",\"rule\":\"From Ready, stay Ready. From Parked, stay Parked.\"}]}"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "compare": {
+          "hash": "0x5b3ae818533aef1081c7e205543d84a4b5572f6f648b8a3d9ce6906e04fc1688",
+          "method": "compare",
+          "args": [
+            "0x222cfa6b28e54f5955178cb54fe30fe169a2974e",
+            "missing-rule"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "reject": {
+          "hash": "0x20e9e5867eb416a2030e36cba7dee3b6586408264b661c624a27a1ff9c40b9af",
+          "method": "rehearse",
+          "args": [
+            "missing-rule",
+            "2f1e402584ff76b33d25a512f17201e50f0e0a997bcb32570d2a1af40e7ca2d7",
+            1,
+            "ABC"
+          ],
+          "status": "FINALIZED",
+          "execution": "ERROR",
+          "error": "NOT_REHEARSABLE"
+        }
+      },
+      "owner": "0x222cfa6b28e54f5955178cb54fe30fe169a2974e",
+      "readback": {
+        "cells": [
+          {
+            "quote": "From Ready, go to Parked.",
+            "reason": "Park explicitly sends Ready to Parked, which is state index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From Parked, stay Parked.",
+            "reason": "Park explicitly leaves Parked unchanged, so the result is the starting index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From Ready, stay Ready.",
+            "reason": "Restore explicitly keeps Ready unchanged, so the result is the starting index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "Parked has no specified transition.",
+            "reason": "Restore gives no destination for Parked, and the scope says this omission is intentional. The behavior is unspecified, so no identity behavior is assumed.",
+            "result": "UNKNOWN"
+          },
+          {
+            "quote": "From Ready, stay Ready.",
+            "reason": "Inspect explicitly keeps Ready unchanged, so the result is the starting index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Parked, stay Parked.",
+            "reason": "Inspect explicitly keeps Parked unchanged, so the result is the starting index 1.",
+            "result": "1"
+          }
+        ],
+        "certificate": "2f1e402584ff76b33d25a512f17201e50f0e0a997bcb32570d2a1af40e7ca2d7",
+        "input_hash": "c28bae170fcfc00c6da41a2eb6ec496da89c4fa923669a07f633141e28d4c31b",
+        "owner": "0x222cfa6b28e54f5955178cb54fe30fe169a2974e",
+        "proof": {
+          "rows": [
+            {
+              "allowed": [
+                "BAC",
+                "BCA",
+                "CBA"
+              ],
+              "ends": [
+                "1"
+              ],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "ACB",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "BAC",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "1",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "BCA",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                },
+                {
+                  "order": "CAB",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "0",
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "CBA",
+                  "result": "1",
+                  "steps": [
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "stopped_at": ""
+                }
+              ],
+              "start": "0"
+            },
+            {
+              "allowed": [],
+              "ends": [],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "ACB",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "BAC",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "BCA",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "CAB",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                },
+                {
+                  "order": "CBA",
+                  "result": "UNKNOWN",
+                  "steps": [
+                    "1",
+                    "UNKNOWN"
+                  ],
+                  "stopped_at": "B"
+                }
+              ],
+              "start": "1"
+            }
+          ],
+          "state": "REVIEW"
+        },
+        "protocol": "orderglass-2",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Park",
+              "rule": "From Ready, go to Parked. From Parked, stay Parked."
+            },
+            {
+              "name": "Restore",
+              "rule": "From Ready, stay Ready. Parked has no specified transition."
+            },
+            {
+              "name": "Inspect",
+              "rule": "From Ready, stay Ready. From Parked, stay Parked."
+            }
+          ],
+          "scope": "Only two modes are relevant. Missing rules are unspecified and should be reviewed. This scenario intentionally omits Restore behavior from Parked.",
+          "states": [
+            "Ready",
+            "Parked"
+          ],
+          "title": "A missing restore rule"
+        },
+        "state": "REVIEW",
+        "tag": "missing-rule"
+      }
+    },
+    "no-schedule": {
+      "expected": "NO_SCHEDULE",
+      "transactions": {
+        "seal": {
+          "hash": "0x356f0df9b48a65e8dea639d933085929bd00c525e8ad845a77e11ac17d0f363d",
+          "method": "open_case",
+          "args": [
+            "no-schedule",
+            "{\"title\":\"Disabled release checkpoint\",\"scope\":\"This release is gated at every possible start. Audit and documentation can run, but neither grants the missing release authorization.\",\"states\":[\"Queued\",\"Staged\"],\"operations\":[{\"name\":\"Release checkpoint\",\"rule\":\"From Queued, explicitly BLOCKED. From Staged, explicitly BLOCKED.\"},{\"name\":\"Audit\",\"rule\":\"From Queued, stay Queued. From Staged, stay Staged.\"},{\"name\":\"Document\",\"rule\":\"From Queued, stay Queued. From Staged, stay Staged.\"}]}"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "compare": {
+          "hash": "0xacda3153d2fba7cb06e79483a6a6f9ee2c50519cce6ad34ca7f429488b5110dd",
+          "method": "compare",
+          "args": [
+            "0xaf459557d8fb456bba65e4cb2af018e4a65abfcb",
+            "no-schedule"
+          ],
+          "status": "FINALIZED",
+          "execution": "SUCCESS"
+        },
+        "reject": {
+          "hash": "0xae7ab2c2a3bc87fe9654a57115868e2005da2b237867bcd1aa7de80fca3f3481",
+          "method": "rehearse",
+          "args": [
+            "no-schedule",
+            "ac86e88ff9da271a276d0487194912bd4a12bef10a623c3a9eb75b9ebf3fc5a6",
+            0,
+            "ABC"
+          ],
+          "status": "FINALIZED",
+          "execution": "ERROR",
+          "error": "NOT_REHEARSABLE"
+        }
+      },
+      "owner": "0xaf459557d8fb456bba65e4cb2af018e4a65abfcb",
+      "readback": {
+        "cells": [
+          {
+            "quote": "From Queued, explicitly BLOCKED.",
+            "reason": "Release checkpoint is explicitly forbidden from Queued.",
+            "result": "BLOCKED"
+          },
+          {
+            "quote": "From Staged, explicitly BLOCKED.",
+            "reason": "Release checkpoint is explicitly forbidden from Staged.",
+            "result": "BLOCKED"
+          },
+          {
+            "quote": "From Queued, stay Queued.",
+            "reason": "Audit explicitly leaves Queued unchanged at index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Staged, stay Staged.",
+            "reason": "Audit explicitly leaves Staged unchanged at index 1.",
+            "result": "1"
+          },
+          {
+            "quote": "From Queued, stay Queued.",
+            "reason": "Document explicitly leaves Queued unchanged at index 0.",
+            "result": "0"
+          },
+          {
+            "quote": "From Staged, stay Staged.",
+            "reason": "Document explicitly leaves Staged unchanged at index 1.",
+            "result": "1"
+          }
+        ],
+        "certificate": "ac86e88ff9da271a276d0487194912bd4a12bef10a623c3a9eb75b9ebf3fc5a6",
+        "input_hash": "c2b55b882b80771929d6fffe7714de9c5275a95df6f90755426da078ef1fab93",
+        "owner": "0xaf459557d8fb456bba65e4cb2af018e4a65abfcb",
+        "proof": {
+          "rows": [
+            {
+              "allowed": [],
+              "ends": [],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "ACB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "BAC",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "0",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "BCA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "0",
+                    "0",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "CAB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "0",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "CBA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "0",
+                    "0",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                }
+              ],
+              "start": "0"
+            },
+            {
+              "allowed": [],
+              "ends": [],
+              "paths": [
+                {
+                  "order": "ABC",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "ACB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "BAC",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "BCA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "CAB",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                },
+                {
+                  "order": "CBA",
+                  "result": "BLOCKED",
+                  "steps": [
+                    "1",
+                    "1",
+                    "BLOCKED"
+                  ],
+                  "stopped_at": "A"
+                }
+              ],
+              "start": "1"
+            }
+          ],
+          "state": "NO_SCHEDULE"
+        },
+        "protocol": "orderglass-2",
+        "rehearsal": null,
+        "spec": {
+          "operations": [
+            {
+              "name": "Release checkpoint",
+              "rule": "From Queued, explicitly BLOCKED. From Staged, explicitly BLOCKED."
+            },
+            {
+              "name": "Audit",
+              "rule": "From Queued, stay Queued. From Staged, stay Staged."
+            },
+            {
+              "name": "Document",
+              "rule": "From Queued, stay Queued. From Staged, stay Staged."
+            }
+          ],
+          "scope": "This release is gated at every possible start. Audit and documentation can run, but neither grants the missing release authorization.",
+          "states": [
+            "Queued",
+            "Staged"
+          ],
+          "title": "Disabled release checkpoint"
+        },
+        "state": "NO_SCHEDULE",
+        "tag": "no-schedule"
+      }
+    }
+  },
+  "address": "0x4Ab127A88f23E3D1cA98a87A79143D46200a310B"
+}

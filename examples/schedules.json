@@ -1,0 +1,186 @@
+[
+  {
+    "tag": "release-gate",
+    "expected": "ORDER_CONSTRAINED",
+    "start": 0,
+    "accept": "ABC",
+    "reject": "BAC",
+    "vector": [
+      "1",
+      "1",
+      "2",
+      "BLOCKED",
+      "2",
+      "2",
+      "BLOCKED",
+      "BLOCKED",
+      "2"
+    ],
+    "spec": {
+      "title": "Back up, switch, restart",
+      "scope": "Three exclusive states model a release. Prepared means a verified backup, and Switched means the configuration is committed. Restart leaves the tracked configuration state unchanged.",
+      "states": [
+        "Closed",
+        "Prepared",
+        "Switched"
+      ],
+      "operations": [
+        {
+          "name": "Back up",
+          "rule": "From Closed, go to Prepared. From Prepared, stay Prepared. From Switched, stay Switched."
+        },
+        {
+          "name": "Switch config",
+          "rule": "From Closed, explicitly BLOCKED. From Prepared, go to Switched. From Switched, stay Switched."
+        },
+        {
+          "name": "Restart",
+          "rule": "From Closed, explicitly BLOCKED. From Prepared, explicitly BLOCKED. From Switched, stay Switched."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "cache-policy",
+    "expected": "DIVERGENT",
+    "start": 0,
+    "accept": "BAC",
+    "vector": [
+      "0",
+      "0",
+      "1",
+      "1",
+      "0",
+      "1"
+    ],
+    "spec": {
+      "title": "Conflicting cache policies",
+      "scope": "Only two cache policy modes are relevant to this abstract release. The recorded terminal mode determines whether the deployment would end in Cold or Warm.",
+      "states": [
+        "Cold",
+        "Warm"
+      ],
+      "operations": [
+        {
+          "name": "Disable warming",
+          "rule": "From Cold, stay Cold. From Warm, go to Cold."
+        },
+        {
+          "name": "Enable warming",
+          "rule": "From Cold, go to Warm. From Warm, stay Warm."
+        },
+        {
+          "name": "Record preference",
+          "rule": "From Cold, stay Cold. From Warm, stay Warm."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "stable-order",
+    "expected": "ORDER_FLEXIBLE",
+    "start": 0,
+    "vector": [
+      "1",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ],
+    "spec": {
+      "title": "Stable logging rollout",
+      "scope": "This model projects a logging rollout onto two observable modes. A metrics check and a documentation receipt each leave the projected mode unchanged.",
+      "states": [
+        "Off",
+        "On"
+      ],
+      "operations": [
+        {
+          "name": "Enable logging",
+          "rule": "From Off, go to On. From On, stay On."
+        },
+        {
+          "name": "Check metrics",
+          "rule": "From Off, stay Off. From On, stay On."
+        },
+        {
+          "name": "Record documentation",
+          "rule": "From Off, stay Off. From On, stay On."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "missing-rule",
+    "expected": "REVIEW",
+    "start": 1,
+    "reject": "ABC",
+    "vector": [
+      "1",
+      "1",
+      "0",
+      "UNKNOWN",
+      "0",
+      "1"
+    ],
+    "spec": {
+      "title": "A missing restore rule",
+      "scope": "Only two modes are relevant. Missing rules are unspecified and should be reviewed. This scenario intentionally omits Restore behavior from Parked.",
+      "states": [
+        "Ready",
+        "Parked"
+      ],
+      "operations": [
+        {
+          "name": "Park",
+          "rule": "From Ready, go to Parked. From Parked, stay Parked."
+        },
+        {
+          "name": "Restore",
+          "rule": "From Ready, stay Ready. Parked has no specified transition."
+        },
+        {
+          "name": "Inspect",
+          "rule": "From Ready, stay Ready. From Parked, stay Parked."
+        }
+      ]
+    }
+  },
+  {
+    "tag": "no-schedule",
+    "expected": "NO_SCHEDULE",
+    "start": 0,
+    "reject": "ABC",
+    "vector": [
+      "BLOCKED",
+      "BLOCKED",
+      "0",
+      "1",
+      "0",
+      "1"
+    ],
+    "spec": {
+      "title": "Disabled release checkpoint",
+      "scope": "This release is gated at every possible start. Audit and documentation can run, but neither grants the missing release authorization.",
+      "states": [
+        "Queued",
+        "Staged"
+      ],
+      "operations": [
+        {
+          "name": "Release checkpoint",
+          "rule": "From Queued, explicitly BLOCKED. From Staged, explicitly BLOCKED."
+        },
+        {
+          "name": "Audit",
+          "rule": "From Queued, stay Queued. From Staged, stay Staged."
+        },
+        {
+          "name": "Document",
+          "rule": "From Queued, stay Queued. From Staged, stay Staged."
+        }
+      ]
+    }
+  }
+]

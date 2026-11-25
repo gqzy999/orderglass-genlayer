@@ -1,0 +1,57 @@
+.schedule-header { position: sticky; top: 0; z-index: 4; }
+.schedule-layout { display: grid; grid-template-columns: minmax(220px, 270px) minmax(0, 1fr); min-height: calc(100vh - 82px); }
+.schedule-sidebar { padding: 2.5rem 1.75rem; background: #f9f7f5; border-right: 1px solid var(--line); }
+.schedule-sidebar h1 { font-size: clamp(24px, 3vw, 38px); margin: 0; }
+.schedule-sidebar p { color: #685c73; line-height: 1.6; }
+.schedule-modes { display: flex; gap: 6px; padding: 1rem 0; }
+.schedule-modes button { flex: 1; }
+.schedule-sidebar nav button { text-align: left; }
+.schedule-reference { display: grid; gap: .55rem; margin-top: 1.5rem; }
+.schedule-reference code, .schedule-evidence code { overflow-wrap: anywhere; }
+.schedule-main { padding: clamp(1rem, 3vw, 3rem); }
+#record-heading > h2 { font: 600 clamp(24px, 4vw, 44px)/1.08 'Space Grotesk', sans-serif; margin: .55em 0 .24em; }
+#record-heading p { line-height: 1.6; }
+.schedule-label { color: #725e86; font: 11px monospace; letter-spacing: .13em; }
+.schedule-starts { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .9rem; }
+.schedule-layout button[aria-pressed="true"], .schedule-layout button[aria-current="true"] { background: #e9dff7; border-color: #8865af; color: #2b1546; }
+.schedule-stage { overflow: hidden; border-radius: 16px; background: radial-gradient(ellipse at 45% 40%, #352450, #21172f 72%); color: #faf1ff; min-width: 0; }
+.schedule-stage[hidden] { display: none; }
+.stage-head, .stage-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; padding: 1rem 1.35rem; }
+.stage-head { justify-content: space-between; border-bottom: 1px solid #503d67; }
+.stage-head span { color: #d0bbdf; font-size: .85rem; }
+.stage-controls { border-top: 1px solid #503d67; }
+.stage-controls button { color: #f3e4ff; background: #34254a; border-color: #695581; }
+.stage-controls button:hover { background: #4a3566; }
+.schedule-model { height: clamp(260px, 44vw, 510px); }
+.schedule-model canvas { display: block; cursor: grab; touch-action: none; }
+.schedule-model canvas:active { cursor: grabbing; }
+.schedule-routes { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0; }
+.schedule-routes button { text-align: left; overflow-wrap: anywhere; }
+.schedule-routes strong, .schedule-routes span { display: block; }
+.schedule-routes span { margin-top: .25em; font-size: .85rem; }
+.schedule-routes .blocked { border-bottom: 3px solid #c96455; }
+.schedule-routes .unknown { border-bottom: 3px solid #ab7129; }
+.schedule-routes .complete { border-bottom: 3px solid #8962ba; }
+#path-detail h2 { font-size: 1.1rem; }
+.path-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: .55rem; padding: 0; list-style: none; }
+.path-steps li { background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: .7rem; }
+.path-steps li.stopped { background: #fdf0eb; }
+.path-steps span { display: block; font-size: .8rem; margin-bottom: .22rem; }
+.schedule-evidence, .schedule-workspace { margin-top: 1.3rem; background: #fdfbf9; border: 1px solid var(--line); padding: 1rem; border-radius: 10px; }
+.schedule-workspace summary, .schedule-evidence summary { cursor: pointer; font-weight: 700; }
+.workspace-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; align-items: end; margin: 1rem 0; }
+#feedback { min-height: 1.4em; color: #624776; overflow-wrap: anywhere; }
+.receipt-links { display: flex; flex-wrap: wrap; gap: 1em; }
+.receipt-links a, .schedule-reference a { text-decoration: underline; }
+@media (max-width: 800px) {
+  .schedule-layout { display: block; }
+  .schedule-sidebar { padding: 1rem; border-right: 0; border-bottom: 1px solid var(--line); }
+  .schedule-sidebar nav { display: flex; flex-wrap: wrap; }
+  .schedule-routes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .schedule-header { padding: 0 14px; height: 60px; }
+  .schedule-header .header-right { gap: .75rem; }
+}
+
+.path-steps details { margin-top: .55rem; color: #67556f; font-size: .82rem; }
+.path-steps details summary { cursor: pointer; }
+.path-steps q { display: block; margin-top: .35rem; }

@@ -1,1 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#241342"><meta name="description" content="Two operations. Two orders. One inspectable answer. OrderGlass compares finite configuration operations through GenLayer consensus."><link rel="icon" href="./mark.svg"><title>OrderGlass — See what order changes</title></head><body><div id="app"></div><script type="module" src="/src/main.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#241342">
+  <meta name="description" content="Compare six possible orders for three configuration operations with OrderGlass.">
+  <link rel="icon" href="./mark.svg">
+  <title>OrderGlass · Schedule studio</title>
+</head>
+<body>
+  <header class="schedule-header">
+    <a class="brand" href="./"><img src="./mark.svg" alt=""><b>OrderGlass</b></a>
+    <div class="header-right">
+      <a href="./pair.html">Pair workspace</a>
+      <a href="https://github.com/gqzy999/orderglass-genlayer" target="_blank" rel="noreferrer">Source ↗</a>
+    </div>
+  </header>
+  <div id="studio" class="schedule-layout">
+    <aside class="schedule-sidebar">
+      <h1>Schedule studio</h1>
+      <p>Compare all six orders for three configuration operations.</p>
+      <div class="schedule-modes"><button id="live" type="button">On GenLayer</button><button id="demo" type="button">Examples</button></div>
+      <nav id="cases" aria-label="Schedule cases"></nav>
+      <div id="case-reference"></div>
+    </aside>
+    <main class="schedule-main">
+      <div id="record-heading"></div>
+      <p id="feedback" role="status"></p>
+      <div id="starts" class="schedule-starts" aria-label="Starting state"></div>
+      <section id="visualization" class="schedule-stage" hidden aria-label="Three-dimensional schedule paths">
+        <div class="stage-head"><strong>Schedule paths</strong><span>Drag to rotate · scroll to zoom</span></div>
+        <div id="model" class="schedule-model"></div>
+        <div class="stage-controls">
+          <button id="replay" type="button">Replay selected path</button>
+          <button id="reset-camera" type="button">Reset view</button>
+        </div>
+      </section>
+      <div id="routes" class="schedule-routes" aria-label="Operation order"></div>
+      <section id="path-detail" aria-live="polite"></section>
+      <section id="inspection"></section>
+      <details class="schedule-workspace" id="workspace" hidden>
+        <summary>Open or read a schedule case</summary>
+        <div class="workspace-fields">
+          <label>Signing wallet<select id="wallet"></select></label>
+          <button id="connect" type="button">Connect</button>
+          <button id="temporary" type="button">Use test account</button>
+          <span id="signer"></span>
+          <label>Case owner<input id="owner" autocomplete="off"></label>
+          <label>Case ID<input id="tag" autocomplete="off" maxlength="48"></label>
+          <button id="read" type="button">Read finalized case</button>
+        </div>
+        <label>Specification JSON<textarea id="payload" rows="8" spellcheck="false"></textarea></label>
+        <button id="seal" type="button">Seal new case</button>
+        <button id="compare" type="button">Compare with GenLayer</button>
+        <button id="rehearse" type="button">Record selected rehearsal</button>
+        <button id="track" type="button" hidden>Track saved transaction</button>
+        <p>Test accounts stay in memory. Writes use Stable Studionet test GEN for the network fee. Configuration remains a model.</p>
+      </details>
+    </main>
+  </div>
+  <script type="module" src="/src/schedules.js"></script>
+</body>
+</html>

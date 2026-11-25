@@ -1,6 +1,57 @@
 # OrderGlass
 
-[Open the experiment desk](https://gqzy999.github.io/orderglass-genlayer/)
+[Open Schedule Studio](https://gqzy999.github.io/orderglass-genlayer/) · [Open the pair workspace](https://gqzy999.github.io/orderglass-genlayer/pair.html)
+
+Schedule Studio evaluates **all six orders of three configuration operations**.
+Choose a starting state, rotate the 3D model, and select a path to inspect or
+replay its intermediate states. Completed and stopped paths remain readable
+through keyboard-accessible order buttons, including where WebGL is unavailable.
+The pair workspace retains the original two-operation comparison and evidence.
+
+## Three-operation schedules
+
+1. Open a published case to inspect a finalized schedule without a wallet.
+2. Choose a start and an order. The workbench shows each destination, the final
+   state, or the first operation that was blocked or unspecified.
+3. To try new rules, connect an EIP-1193 wallet on Stable Studionet or create a
+   temporary test account, then seal a case with 2–6 states and three rules.
+4. Run **Compare with GenLayer**. After finality, the owner may record one
+   completed order from the selected start using the exact certificate.
+   REVIEW and NO SCHEDULE block rehearsals. Rehearsal records abstract states.
+
+Validators independently compile the original text into a complete
+operation-major vector of destination indices, BLOCKED or UNKNOWN. They must
+agree on every cell. The accepted evidence quotes must occur in the rule of
+the corresponding operation. Deterministic code simulates each permutation
+from every declared start, stops at the first invalid transition, and binds
+the exact paths to a certificate. An order can be viable even if other orders
+are blocked or end elsewhere. The browser checks the deployed source, protocol,
+input hash, quotes, recomputed paths and any recorded rehearsal.
+
+The accepted [two-operation baseline](https://github.com/gqzy999/orderglass-genlayer/tree/9467a427d6b7f03b647737867fc4cbc4e34536bd)
+compares 2 orders. The schedules deployment enumerates 6, exposes per-start
+blocking and divergence, and authorizes a specific complete path rather than
+requiring all orders to commute.
+
+[Live schedule contract](https://explorer-studio.genlayer.com/address/0x4Ab127A88f23E3D1cA98a87A79143D46200a310B) · [Contract source](contracts/orderglass_schedules.py) ·
+[Finalized receipts and readbacks](evidence/schedules-studionet.json) ·
+[Official SDK lint](evidence/schedules-lint.json)
+
+```sh
+npm ci
+npm test
+python3 -B -m unittest discover -s contract-tests -v
+npm run build
+npm run verify:schedules
+```
+
+`verify:schedules` re-reads the stored hashes, verifies their finalized
+execution, checks deployed source byte parity and recomputes the finalized
+schedule proofs. The scheduled-workspace transport uses genlayer-js 2.0.0
+under the `genlayer-studio` alias to include the current network fee policy.
+Writes use test GEN for network fees and transfer zero value to the contract.
+
+## Original pair workspace
 
 **Same actions. Different ending?**
 
@@ -45,7 +96,7 @@ npm run build
 npm run dev
 ```
 
-Production output is `dist/`. The JavaScript SDK is pinned to `genlayer-js` 1.1.8 for Stable Studionet compatibility. The contract's runner is pinned in its dependency header. A newer-runner lint advisory is informational; Studio schema compilation is a separate compatibility check.
+Production output is `dist/`. The pair workspace retains its original `genlayer-js` 1.1.8 transport. Use the schedules workspace for writes when the network requires fee allocation parameters. The contract's runner is pinned in its dependency header. A newer-runner lint advisory is informational; Studio schema compilation is a separate compatibility check.
 
 [Mechanism and state design](MECHANISM.md) · [Validation and limits](VALIDATION.md) · [Deployment coordinates](evidence/deployment.json) · [Recorded transactions](evidence/live.json) · [Contract source](contracts/orderglass.py)
 

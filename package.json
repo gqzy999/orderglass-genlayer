@@ -9,10 +9,13 @@
     "test": "node --test tests/*.test.mjs",
     "live": "node scripts/live.mjs",
     "read": "node scripts/read.mjs",
-    "check:evidence": "node scripts/check-evidence.mjs"
+    "check:evidence": "node scripts/check-evidence.mjs",
+    "verify:schedules": "node scripts/schedules-live.mjs"
   },
   "dependencies": {
     "genlayer-js": "1.1.8",
+    "genlayer-studio": "npm:genlayer-js@2.0.0",
+    "three": "0.183.2",
     "viem": "2.57.8"
   },
   "devDependencies": {

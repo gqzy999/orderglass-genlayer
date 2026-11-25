@@ -48,3 +48,24 @@ Record fields are `protocol`, `owner`, `tag`, `spec`, `input_hash`, `state`, `ce
 ## Failure behavior
 
 Guards include NOT_FOUND, ALREADY_EXISTS, NOT_SEALED, NOT_COMMUTING, STALE_CERTIFICATE, NO_COMMON_START, INVALID_REHEARSAL, INVALID_MATRIX and UNSUPPORTED_QUOTE. A different sender cannot rehearse an existing owner's case because the write derives its namespace from the signer. Missing/malformed model output never becomes an accepted REVIEW. Guard proofs on Studio use finalized error execution plus complete unchanged-state readback; a readable receipt error string is not required.
+
+
+## Three-operation scheduling
+
+The `orderglass-2` contract stores an immutable specification under the
+owner and case ID. GenLayer validators independently compile all three rows
+of operation/state cells and compare the exact result vector. For every
+declared start, the contract applies ABC, ACB, BAC, BCA, CAB and CBA, stopping
+on BLOCKED or UNKNOWN. It records the intermediate states, first stopped
+operation, valid orders and distinct completed endings.
+
+The proof state is REVIEW when any cell is unknown, NO_SCHEDULE when none
+of the orders completes, DIVERGENT when one start has multiple completed
+endings, ORDER_CONSTRAINED when there is a mix of blocked and completed orders,
+and ORDER_FLEXIBLE otherwise. Only the owner can rehearse a complete order from
+a certified start. The certificate binds the immutable input hash, transition
+vector and complete proof. A rehearsal is terminal.
+
+The order list makes no claim outside the declared finite model. Real
+execution, hidden state, concurrency, retries, timing and side effects remain
+outside the protocol.
